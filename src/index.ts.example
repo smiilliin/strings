@@ -1,0 +1,19 @@
+import express from "express";
+import Strings from "./strings";
+
+const strings = new Strings();
+
+const app = express();
+
+app.use(express.json());
+
+app.get("/", (req, res) => {
+  res.status(200).send({
+    text: "TEST",
+  });
+});
+strings.use(app);
+
+app.listen("3000", () => {
+  console.log("Running on 3000 port!");
+});
